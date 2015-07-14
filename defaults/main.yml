@@ -1,2 +1,3 @@
 # defaults file for pip
 ---
+pip_self_update: true

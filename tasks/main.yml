@@ -14,3 +14,10 @@
   args:
     creates: /usr/local/bin/pip
   tags: [configuration, pip, pip-install]
+
+- name: upgrade
+  pip:
+    name: pip
+    state: latest
+  when: pip_self_update
+  tags: [configuration, pip, pip-upgrade]

@@ -12,7 +12,7 @@ Set up (the latest version of) pip in Debian-like systems.
 
 #### Variables
 
-None
+* `pip_self_update`: [default: `true`]: Whether or not to execute `pip install -U pip` on every run
 
 ## Dependencies
 
