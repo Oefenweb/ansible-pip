@@ -1,0 +1,23 @@
+# tasks file for pip
+---
+- name: install dependencies
+  apt:
+    name: "{{ item }}"
+    state: latest
+    update_cache: true
+    cache_valid_time: 3600
+  with_items: pip_dependencies
+  tags: [configuration, pip, pip-dependencies]
+
+- name: install
+  shell: "curl -sL https://bootstrap.pypa.io/get-pip.py | python -"
+  args:
+    creates: /usr/local/bin/pip
+  tags: [configuration, pip, pip-install]
+
+- name: upgrade
+  pip:
+    name: pip
+    state: latest
+  when: pip_self_update
+  tags: [configuration, pip, pip-upgrade]
