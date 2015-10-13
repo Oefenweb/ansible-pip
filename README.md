@@ -6,13 +6,12 @@ Set up (the latest version of) pip in Debian-like systems.
 
 #### Requirements
 
-* `python` (will be installed)
 * `python-dev` (will be installed)
-* `curl` (will be installed)
+* `python-pip` (will be installed)
 
 #### Variables
 
-* `pip_self_update`: [default: `true`]: Whether or not to execute `pip install -U pip` on every run
+* `pip_self_update`: [default: `true`]: Whether or not to execute `pip install -U pip`, to get get latest version
 
 ## Dependencies
 
