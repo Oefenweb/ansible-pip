@@ -8,6 +8,7 @@ Set up (the latest version of) [pip](https://pypi.python.org/pypi/pip) and [setu
 
 * `python` (will be installed)
 * `python-dev` (will be installed)
+* `curl` (will be installed)
 
 #### Variables
 
