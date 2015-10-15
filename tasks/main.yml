@@ -12,12 +12,41 @@
     - pip
     - pip-dependencies
 
-- name: upgrade
-  pip:
-    name: pip
-    state: latest
-  when: pip_self_update
+- name: create (download) directory
+  file:
+    path: "{{ pip_download_path }}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
   tags:
     - configuration
     - pip
-    - pip-upgrade
+    - pip-download
+    - pip-download-directory
+
+- name: download (latest)
+  get_url:
+    url: "{{ item }}"
+    dest: "{{ pip_download_path }}/{{ item | basename }}"
+    owner: root
+    group: root
+    mode: 0644
+    force: true
+  register: download_latest
+  with_items: pip_download_urls
+  tags:
+    - configuration
+    - pip
+    - pip-download
+    - pip-download-latest
+
+- name: install (latest)
+  command: "python {{ item.dest }}"
+  with_items: download_latest.results
+  when: item.changed
+  tags:
+    - configuration
+    - pip
+    - pip-download
+    - pip-download-install-latest

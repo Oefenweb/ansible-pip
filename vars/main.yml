@@ -1,5 +1,11 @@
 # vars file for pip
 ---
 pip_dependencies:
+  - python
   - python-dev
-  - python-pip
+
+pip_download_path: /var/lib/ansible/pip/downloads
+
+pip_download_urls:
+  - https://bootstrap.pypa.io/ez_setup.py
+  - https://bootstrap.pypa.io/get-pip.py
