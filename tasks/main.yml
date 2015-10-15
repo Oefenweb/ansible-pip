@@ -25,28 +25,45 @@
     - pip-download
     - pip-download-directory
 
-- name: download (latest)
+- name: download (latest) setuptools
   get_url:
-    url: "{{ item }}"
-    dest: "{{ pip_download_path }}/{{ item | basename }}"
+    url: "{{ pip_download_url }}"
+    dest: "{{ pip_download_path }}/{{ pip_download_url | basename }}"
     owner: root
     group: root
     mode: 0644
     force: true
   register: download_latest
-  with_items: pip_download_urls
   tags:
     - configuration
     - pip
     - pip-download
-    - pip-download-latest
+    - pip-download-latest-setuptools
 
-- name: install (latest)
-  command: "python {{ item.dest }}"
-  with_items: download_latest.results
-  when: item.changed
+- name: install (latest) setuptools
+  command: "python {{ download_latest.dest }}"
+  when: download_latest | changed
   tags:
     - configuration
     - pip
-    - pip-download
-    - pip-download-install-latest
+    - pip-install
+    - pip-install-latest-setuptools
+
+- name: install pip
+  easy_install:
+    name: pip
+  tags:
+    - configuration
+    - pip
+    - pip-install
+    - pip-install-pip
+
+- name: update pip
+  pip:
+    name: pip
+    state: latest
+  tags:
+    - configuration
+    - pip
+    - pip-update
+    - pip-update-pip
