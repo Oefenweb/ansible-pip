@@ -49,6 +49,9 @@
     - pip-install
     - pip-install-latest-setuptools
 
+- name: remove (latest) setuptools tempfile
+  file: "dest={{ download_latest.dest }} state=absent"
+  
 - name: install pip
   easy_install:
     name: pip
