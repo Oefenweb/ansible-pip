@@ -1,0 +1,14 @@
+# tasks file for pip
+---
+- name: install pip
+  easy_install:
+    name: pip
+  tags:
+    - pip-pip-install
+
+- name: update pip
+  pip:
+    name: pip
+    state: latest
+  tags:
+    - pip-pip-update
