@@ -13,7 +13,7 @@
     - pip-setuptools-download
 
 - name: install (latest) setuptools
-  command: "python {{ download_latest.dest }}"
+  command: python {{ download_latest.dest }}
   when: download_latest | changed
   tags:
     - pip-setuptools-install
