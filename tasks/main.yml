@@ -2,11 +2,10 @@
 ---
 - name: install dependencies
   apt:
-    name: "{{ item }}"
+    name: "{{ pip_dependencies }}"
     state: "{{ apt_install_state | default('latest') }}"
     update_cache: true
     cache_valid_time: "{{ apt_update_cache_valid_time | default(3600) }}"
-  with_items: "{{ pip_dependencies }}"
   tags:
     - configuration
     - pip
@@ -39,8 +38,9 @@
     - pip-pip-download
 
 - name: install (latest) pip (setuptools and wheel)
-  command: python {{ _download_latest.dest }}
-  when: _download_latest | changed
+  command: >
+    python {{ _download_latest.dest }}
+  when: _download_latest is changed
   tags:
     - configuration
     - pip
