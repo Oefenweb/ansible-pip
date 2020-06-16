@@ -39,7 +39,7 @@
 
 - name: install (latest) pip (setuptools and wheel)
   command: >
-    python {{ _download_latest.dest }}
+    python{{ pip_python_version | string }} {{ _download_latest.dest }}
   when: _download_latest is changed
   tags:
     - configuration

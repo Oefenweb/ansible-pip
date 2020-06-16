@@ -1,8 +1,8 @@
 # vars file for pip
 ---
 pip_dependencies:
-  - python
-  - python-dev
+  - "python{{ pip_python_version is version('3', '>=') | ternary('3', '') }}"
+  - "python{{ pip_python_version is version('3', '>=') | ternary('3', '') }}-dev"
   - curl
 
 pip_download_path: /var/lib/ansible/pip/downloads
