@@ -1,6 +1,6 @@
 ## pip
 
-[![Build Status](https://travis-ci.org/Oefenweb/ansible-pip.svg?branch=master)](https://travis-ci.org/Oefenweb/ansible-pip)
+[![CI](https://github.com/Oefenweb/ansible-pip/workflows/CI/badge.svg)](https://github.com/Oefenweb/ansible-pip/actions?query=workflow%3ACI)
 [![Ansible Galaxy](http://img.shields.io/badge/ansible--galaxy-pip-blue.svg)](https://galaxy.ansible.com/Oefenweb/pip)
 
 Set up (the latest version of) [pip](https://pypi.python.org/pypi/pip), [wheel](https://packaging.python.org/key_projects/#wheel) and [setuptools](https://packaging.python.org/key_projects/#setuptools) in Debian-like systems.
