@@ -37,49 +37,49 @@
 
     - name: get download url (2.6)
       set_fact:
-        pip_download_url: 'https://bootstrap.pypa.io/2.6/get-pip.py'
+        pip_download_url: 'https://bootstrap.pypa.io/pip/2.6/get-pip.py'
       when:
         - _python_version.stdout is version('2.6', '>=')
         - _python_version.stdout is version('2.7', '<')
 
     - name: get download url (2.7)
       set_fact:
-        pip_download_url: 'https://bootstrap.pypa.io/2.7/get-pip.py'
+        pip_download_url: 'https://bootstrap.pypa.io/pip/2.7/get-pip.py'
       when:
         - _python_version.stdout is version('2.7', '>=')
         - _python_version.stdout is version('2.8', '<')
 
     - name: get download url (3.2)
       set_fact:
-        pip_download_url: 'https://bootstrap.pypa.io/3.2/get-pip.py'
+        pip_download_url: 'https://bootstrap.pypa.io/pip/3.2/get-pip.py'
       when:
         - _python_version.stdout is version('3.2', '>=')
         - _python_version.stdout is version('3.3', '<')
 
     - name: get download url (3.3)
       set_fact:
-        pip_download_url: 'https://bootstrap.pypa.io/3.3/get-pip.py'
+        pip_download_url: 'https://bootstrap.pypa.io/pip/3.3/get-pip.py'
       when:
         - _python_version.stdout is version('3.3', '>=')
         - _python_version.stdout is version('3.4', '<')
 
     - name: get download url (3.4)
       set_fact:
-        pip_download_url: 'https://bootstrap.pypa.io/3.4/get-pip.py'
+        pip_download_url: 'https://bootstrap.pypa.io/pip/3.4/get-pip.py'
       when:
         - _python_version.stdout is version('3.4', '>=')
         - _python_version.stdout is version('3.5', '<')
 
     - name: get download url (3.5)
       set_fact:
-        pip_download_url: 'https://bootstrap.pypa.io/3.5/get-pip.py'
+        pip_download_url: 'https://bootstrap.pypa.io/pip/3.5/get-pip.py'
       when:
         - _python_version.stdout is version('3.5', '>=')
         - _python_version.stdout is version('3.6', '<')
 
     - name: get download url (latest)
       set_fact:
-        pip_download_url: 'https://bootstrap.pypa.io/get-pip.py'
+        pip_download_url: 'https://bootstrap.pypa.io/pip/get-pip.py'
       when: _python_version.stdout is version('3.6', '>=')
 
   tags:
