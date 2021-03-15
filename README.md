@@ -13,7 +13,8 @@ Set up (the latest version of) [pip](https://pypi.python.org/pypi/pip), [wheel](
 
 #### Variables
 
-* `pip_python_version` [default: `2`]: Python version to install `pip` (and `setuptools`) for.
+* `pip_python_version_major` [default: `2`]: Python version to install `pip` for.
+* `pip_python_version` [default: `pip_python_version`]: Deprecated
 
 ## Dependencies
 

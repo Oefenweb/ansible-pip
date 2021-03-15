@@ -25,7 +25,7 @@
 
 - name: get python version
   shell: >
-    python{{ pip_python_version | string }} --version 2>&1 | awk '{print $2}'
+    python{{ pip_python_version_major | string }} --version 2>&1 | awk '{print $2}'
   register: _python_version
   changed_when: false
   tags:
@@ -103,7 +103,7 @@
 
 - name: install (latest) pip (setuptools and wheel)
   command: >
-    python{{ pip_python_version | string }} {{ _download_latest.dest }}
+    python{{ pip_python_version_major | string }} {{ _download_latest.dest }}
   when: _download_latest is changed
   tags:
     - configuration
