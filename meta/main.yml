@@ -1,6 +1,7 @@
 # meta file for pip
 ---
 galaxy_info:
+  namespace: oefenweb
   role_name: pip
   author: Mischa ter Smitten
   company: Oefenweb.nl B.V.
