@@ -23,7 +23,7 @@
     - pip
     - pip-directory
 
-- name: get python version
+- name: get python version  # noqa risky-shell-pipe
   ansible.builtin.shell: >
     python{{ pip_python_version_major | string }} --version 2>&1 | awk '{print $2}'
   register: _python_version
@@ -111,6 +111,7 @@
   ansible.builtin.command: >
     python{{ pip_python_version_major | string }} {{ _download_latest.dest }}
   when: _download_latest is changed
+  changed_when: true
   tags:
     - configuration
     - pip
