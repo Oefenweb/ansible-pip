@@ -33,8 +33,12 @@
     - pip
     - pip-get-python-version
 
-- block:
-
+- name: get download url
+  tags:
+    - configuration
+    - pip
+    - pip-get-download-url
+  block:
     - name: get download url (2.6)
       set_fact:
         pip_download_url: 'https://bootstrap.pypa.io/pip/2.6/get-pip.py'
@@ -88,11 +92,6 @@
       set_fact:
         pip_download_url: 'https://bootstrap.pypa.io/pip/get-pip.py'
       when: _python_version.stdout is version('3.7', '>=')
-
-  tags:
-    - configuration
-    - pip
-    - pip-get-download-url
 
 - name: download (latest) pip
   get_url:
