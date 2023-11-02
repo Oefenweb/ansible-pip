@@ -26,7 +26,7 @@ None
 ---
 - hosts: all
   roles:
-    - pip
+    - oefenweb.pip
 ```
 
 #### License
