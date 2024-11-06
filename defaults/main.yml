@@ -1,4 +1,10 @@
 # defaults file
 ---
-pip_python_version_major: 2
+pip_install_method: native
+# Only available for < 24.04
+# pip_install_method: get-pip
+
+pip_python_version_major: 3
 pip_python_version: "{{ pip_python_version_major }}"
+
+pip_install: []
