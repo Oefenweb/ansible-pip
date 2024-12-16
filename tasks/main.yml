@@ -1,6 +1,6 @@
 # tasks file
 ---
-- name: install native
+- name: install | native
   ansible.builtin.import_tasks: install-native.yml
   when: pip_install_method == 'native'
   tags:
@@ -8,7 +8,7 @@
     - pip
     - pip-install-native
 
-- name: install pip
+- name: install | pip
   ansible.builtin.import_tasks: install-get-pip.yml
   when: pip_install_method == 'get-pip'
   tags:
