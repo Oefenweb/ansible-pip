@@ -87,10 +87,17 @@
         - _python_version.stdout is version('3.7', '>=')
         - _python_version.stdout is version('3.8', '<')
 
+    - name: install | get-pip | get download url (3.8)
+      ansible.builtin.set_fact:
+        pip_download_url: 'https://bootstrap.pypa.io/pip/3.8/get-pip.py'
+      when:
+        - _python_version.stdout is version('3.8', '>=')
+        - _python_version.stdout is version('3.9', '<')
+
     - name: install | get-pip | get download url (latest)
       ansible.builtin.set_fact:
         pip_download_url: 'https://bootstrap.pypa.io/pip/get-pip.py'
-      when: _python_version.stdout is version('3.8', '>=')
+      when: _python_version.stdout is version('3.9', '>=')
 
 - name: install | get-pip | download (latest)
   ansible.builtin.get_url:
